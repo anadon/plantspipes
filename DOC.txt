@@ -1,0 +1,45 @@
+This is to document the creation of this site using django-bootstrap3 based on the following web resources:
+https://tutorial.djangogirls.org/en/installation/
+https://django-bootstrap3.readthedocs.io/en/latest/quickstart.html
+
+
+#: sudo pip install django-bootstrap3
+
+create your work folder $WWW
+
+$: cd $WWW
+
+create the file 'index.txt' with the following contents:
+
+{# Load the tag library #}
+{% load bootstrap3 %}
+
+{# Load CSS and JavaScript #}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+{# Display django.contrib.messages as Bootstrap alerts #}
+{% bootstrap_messages %}
+
+{# Display a form #}
+<form action="/url/to/submit/" method="post" class="form">
+  {% csrf_token %}
+  {% bootstrap_form form %}
+  {% buttons %}
+    <button type="submit" class="btn btn-primary">
+      {% bootstrap_icon "star" %} Submit
+    </button>
+  {% endbuttons %}
+</form>
+
+{# Read the documentation for more information #}
+
+$: python3 -m venv myvenv
+$: source myvenv/bin/activate
+$: pip install --upgrade pip
+$: pip install django
+$: django-admin startproject mysite .
+
+Change the settings according to https://tutorial.djangogirls.org/en/django_start_project/
+
+
